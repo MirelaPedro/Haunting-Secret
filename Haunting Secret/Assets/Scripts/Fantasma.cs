@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Fantasma : MonoBehaviour
 {
+
+    [SerializeField] private Transform[] pontosDoCaminho;
+    private int pontoAtual;
+    public float velocidade;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +20,10 @@ public class Fantasma : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Movimento()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, pontosDoCaminho[pontoAtual].position, velocidade); 
     }
 }
