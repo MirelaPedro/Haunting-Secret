@@ -4,56 +4,73 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float horizontal;
-    private float speed = 8f;
-    private float jumpower = 16f;
-    private bool isFacingRight = true;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    public float speed = 5;
+    public float jump = 500;
+
+    private float Move;
+
+    public Rigidbody2D rb;
+
+    public bool isJumping = false;
+
+    private SpriteRenderer sprite;
 
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        Move = Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        Flip(Move);
+        rb.velocity = new Vector2(speed * Move, rb.velocity.y);
+
+        if (Input.GetButtonDown("Jump") && isJumping == false)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpower);
+            rb.AddForce(new Vector2(rb.velocity.x, jump));
         }
+    }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Floor"))
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            isJumping = false;
         }
-
-        Flip();
     }
 
-    private void FixedUpdate()
+    private void OnCollisionExit2D(Collision2D other)
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-    }
-
-    private bool isGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer); //O valor de 0.2f pode ser alterado caso necessario
-    }
-
-    private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if (other.gameObject.CompareTag("Floor"))
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            isJumping = true;
+        }
+    }
+
+    private void Flip(float Move)
+    {
+        if(Move >= 0)
+        {
+            sprite.flipX = false;
+        }
+        else if(Move < 0) 
+        {
+            sprite.flipX = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            Debug.Log("Item pego!");
+
+            Destroy(other.gameObject);
         }
     }
 }
