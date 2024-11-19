@@ -19,11 +19,15 @@ public class Fantasma : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Movimento();
     }
 
     void Movimento()
     {
-        transform.position = Vector2.MoveTowards(transform.position, pontosDoCaminho[pontoAtual].position, velocidade); 
+        transform.position = Vector2.MoveTowards(transform.position, pontosDoCaminho[pontoAtual].position, velocidade);
+
+        if (pontoAtual == 0)
+        {
+        }
     }
 }
