@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        DontDestroyOnLoad(this.gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
@@ -35,6 +38,14 @@ public class Player : MonoBehaviour
             rb.AddForce(new Vector2(rb.velocity.x, jump));
         }
     }
+
+    private void OnSceneLoaded(Scene cena, LoadSceneMode loadSceneMode)
+    {
+        GameObject spawnposicao = GameObject.FindGameObjectWithTag("SpawnFase2");
+        Transform posicaoinicial = spawnposicao.transform;
+        Vector3 pos = posicaoinicial.position;
+        this.transform.position = pos;
+    } 
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -77,4 +88,4 @@ public class Player : MonoBehaviour
 
 
 
- 
+

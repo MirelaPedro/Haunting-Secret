@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Item
+  - SpawnFase2
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Porta
   - 
   - 
   - 
