@@ -8,6 +8,7 @@ public class Fantasma : MonoBehaviour
     [SerializeField] private Transform[] pontosDoCaminho;
     private int pontoAtual;
     public float velocidade;
+    private float positionX;
 
 
     // Start is called before the first frame update
@@ -20,14 +21,34 @@ public class Fantasma : MonoBehaviour
     void Update()
     {
         Movimento();
+        Espelhar();
     }
 
     void Movimento()
     {
-        transform.position = Vector2.MoveTowards(transform.position, pontosDoCaminho[pontoAtual].position, velocidade);
+        transform.position = Vector2.MoveTowards(transform.position, pontosDoCaminho[pontoAtual].position, velocidade *Time.deltaTime);
 
-        if (pontoAtual == 0)
+        if (transform.position == pontosDoCaminho[pontoAtual].position)
         {
+            pontoAtual += 1;
+            positionX = transform.localPosition.x;
+
+            if (pontoAtual >= pontosDoCaminho.Length) { 
+                pontoAtual = 0;
+            }
         }
     }
+
+    void Espelhar()
+    {
+        if (transform.localPosition.x < positionX)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (transform.localPosition.x > positionX)
+        {
+            transform.localScale = new Vector3( 1f, 1f, 1f);
+        }
+    }
+
 }
