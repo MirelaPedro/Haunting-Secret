@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +21,10 @@ public class Player : MonoBehaviour
 
     Animator anim;
 
+    private int life = 1;
+
+    private bool dead = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,21 +37,27 @@ public class Player : MonoBehaviour
     // Update is called once per fram
     void Update()
     {
-        Move = Input.GetAxis("Horizontal");
+        if (!dead) { 
+            Move = Input.GetAxis("Horizontal");
 
-        if (Move != 0)
-        {
-            Flip(Move);
+            if (Move != 0)
+            {
+                Flip(Move);
+            }
+
+            rb.velocity = new Vector2(speed * Move, rb.velocity.y);
+
+            if (Input.GetButtonDown("Jump") && !isJumping)
+            {
+                rb.AddForce(new Vector2(rb.velocity.x, jump));
+            }
+
+            Animations();
         }
-
-        rb.velocity = new Vector2(speed * Move, rb.velocity.y);
-
-        if (Input.GetButtonDown("Jump") && !isJumping)
+        else
         {
-            rb.AddForce(new Vector2(rb.velocity.x, jump));
+            anim.SetInteger("transitions", 0);
         }
-
-        Animations();
     }
 
     private void OnSceneLoaded(Scene cena, LoadSceneMode loadSceneMode)
@@ -62,7 +74,16 @@ public class Player : MonoBehaviour
         {
             isJumping = false;
         }
-    }
+
+        if (other.gameObject.tag == "ataque")
+        {
+            life--;
+            if (life < 1)
+            {
+                dead = true;
+            }
+        }
+}
 
     private void OnCollisionExit2D(Collision2D other)
     {
@@ -109,6 +130,9 @@ public class Player : MonoBehaviour
             anim.SetInteger("transitions", 2); 
         }
     }
+
+
+
 }
 
 

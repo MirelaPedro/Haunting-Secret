@@ -361,9 +361,11 @@ GameObject:
   m_Component:
   - component: {fileID: 496076922}
   - component: {fileID: 496076921}
+  - component: {fileID: 496076924}
+  - component: {fileID: 496076923}
   m_Layer: 0
   m_Name: Fantasma2
-  m_TagString: Untagged
+  m_TagString: ataque
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,6 +437,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 608006230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &496076923
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496076918}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &496076924
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496076918}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.2472162}
+  serializedVersion: 2
+  m_Radius: 0.99864495
 --- !u!1 &608006229
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,10 +608,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62803203d27be4b4f8e9786192ffdc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pontosDoCaminho:
-  - {fileID: 1012010200}
-  - {fileID: 694233341}
-  velocidade: 3
+  moveSpeed: 0.3
+  pointsToMove: []
+  startingPoint: 0
+  sprite: {fileID: 0}
 --- !u!1 &633622423
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +670,7 @@ Transform:
   m_GameObject: {fileID: 694233340}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.99, y: 0, z: 0}
+  m_LocalPosition: {x: 2.76, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -657,7 +721,7 @@ GameObject:
   - component: {fileID: 877625193}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: ataque
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -671,11 +735,10 @@ Transform:
   m_GameObject: {fileID: 877625191}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.17, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1590449002}
+  m_Children: []
   m_Father: {fileID: 1878304654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &877625193
@@ -690,10 +753,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62803203d27be4b4f8e9786192ffdc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pontosDoCaminho:
+  moveSpeed: 1
+  pointsToMove:
   - {fileID: 1898073646}
   - {fileID: 950500107}
-  velocidade: 2
+  startingPoint: 0
+  sprite: {fileID: 1590449001}
 --- !u!1 &950500106
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,11 +784,11 @@ Transform:
   m_GameObject: {fileID: 950500106}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6799998, y: 0, z: 0}
+  m_LocalPosition: {x: -0.85, y: 0.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2119006189}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957767702
 GameObject:
@@ -5005,7 +5070,7 @@ Transform:
   m_GameObject: {fileID: 1012010199}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.45, y: 0, z: 0}
+  m_LocalPosition: {x: -1.39, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5226,9 +5291,10 @@ GameObject:
   - component: {fileID: 1590449001}
   - component: {fileID: 1590449000}
   - component: {fileID: 1590448999}
+  - component: {fileID: 1590449003}
   m_Layer: 0
   m_Name: Fantasma1
-  m_TagString: Untagged
+  m_TagString: ataque
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5292,9 +5358,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.116817005, y: 0.4120231}
+  m_Offset: {x: -0.116817005, y: -0.042103138}
   serializedVersion: 2
-  m_Radius: 1.5778537
+  m_Radius: 1.1594039
 --- !u!212 &1590449001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5356,12 +5422,30 @@ Transform:
   m_GameObject: {fileID: 1590448998}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.13, y: 0, z: 0}
+  m_LocalPosition: {x: -1.9300001, y: 0.43, z: 0}
   m_LocalScale: {x: 0.35373166, y: 0.3259423, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 877625192}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1590449003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590448998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62803203d27be4b4f8e9786192ffdc50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  pointsToMove:
+  - {fileID: 1898073646}
+  - {fileID: 950500107}
+  startingPoint: 0
+  sprite: {fileID: 1590449001}
 --- !u!1 &1722462427
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,12 +5661,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898073645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.41, y: 0.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2119006189}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2119006188
 GameObject:
@@ -5612,9 +5696,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1898073646}
-  - {fileID: 950500107}
+  m_Children: []
   m_Father: {fileID: 1878304654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4387910273971890553
@@ -5639,11 +5721,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.88
+      value: -6.17
       objectReference: {fileID: 0}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.59
+      value: -0.51
       objectReference: {fileID: 0}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5693,3 +5775,6 @@ SceneRoots:
   - {fileID: 698682298}
   - {fileID: 1414370907}
   - {fileID: 4387910273971890553}
+  - {fileID: 1590449002}
+  - {fileID: 1898073646}
+  - {fileID: 950500107}
