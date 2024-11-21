@@ -17,26 +17,35 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer sprite;
 
+    Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    // Update is called once per fram
     void Update()
     {
         Move = Input.GetAxis("Horizontal");
 
-        Flip(Move);
+        if (Move != 0)
+        {
+            Flip(Move);
+        }
+
         rb.velocity = new Vector2(speed * Move, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && isJumping == false)
+        if (Input.GetButtonDown("Jump") && !isJumping)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
         }
+
+        Animations();
     }
 
     private void OnSceneLoaded(Scene cena, LoadSceneMode loadSceneMode)
@@ -65,13 +74,13 @@ public class Player : MonoBehaviour
 
     private void Flip(float Move)
     {
-        if(Move >= 0)
+        if (Move > 0)
         {
-            sprite.flipX = false;
+            sprite.flipX = false; 
         }
-        else if(Move < 0) 
+        else if (Move < 0)
         {
-            sprite.flipX = true;
+            sprite.flipX = true;  
         }
     }
 
@@ -82,6 +91,22 @@ public class Player : MonoBehaviour
             Debug.Log("Item pego!");
 
             Destroy(other.gameObject);
+        }
+    }
+
+    private void Animations()
+    {
+        if (isJumping)
+        {
+            anim.SetInteger("transitions", 3); 
+        }
+        else if (Move != 0) 
+        {
+            anim.SetInteger("transitions", 4); 
+        }
+        else 
+        {
+            anim.SetInteger("transitions", 2); 
         }
     }
 }
