@@ -61,12 +61,27 @@ public class Player : MonoBehaviour
     }
 
     private void OnSceneLoaded(Scene cena, LoadSceneMode loadSceneMode)
+{
+    if (cena.name == "GameOver")
     {
         GameObject spawnposicao = GameObject.FindGameObjectWithTag("SpawnFase2");
-        Transform posicaoinicial = spawnposicao.transform;
-        Vector3 pos = posicaoinicial.position;
-        this.transform.position = pos;
-    } 
+        if (spawnposicao != null)
+        {
+            spawnposicao.SetActive(false); 
+           
+        }
+    }
+    else
+    {
+        GameObject spawnposicao = GameObject.FindGameObjectWithTag("SpawnFase2");
+        if (spawnposicao != null)
+        {
+            Transform posicaoinicial = spawnposicao.transform;
+            Vector3 pos = posicaoinicial.position;
+            this.transform.position = pos;  
+        }
+    }
+}
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -81,6 +96,7 @@ public class Player : MonoBehaviour
             if (life < 1)
             {
                 dead = true;
+                StartCoroutine(WaitAndGameOver());
             }
         }
 }
@@ -131,8 +147,12 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
+    private IEnumerator WaitAndGameOver()
+    {
+        yield return new WaitForSeconds(2f); // Espera por 2 segundos
+        this.gameObject.SetActive(false);
+        SceneManager.LoadScene("GameOver"); // Carrega a cena de Game Over
+    }
 }
 
 

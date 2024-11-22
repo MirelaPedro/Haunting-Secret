@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SubsoloScene.unity
     guid: 9275e8fec12e3154b9bb845cebb5098f
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 11cded6ed80f96f449bbb425077f5dfc
   m_configObjects: {}

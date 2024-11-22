@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Fantasma : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Fantasma : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public bool facingRight = true;
+    public int Respawn;
 
     void Start()
     {
