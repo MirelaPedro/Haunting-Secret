@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Fantasma : MonoBehaviour
 {
-    private float speed = 3;
+    private float speed = 2;
     public bool ground = true;
     public Transform groundCheck;
     public LayerMask groundLayer;
