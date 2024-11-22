@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
 
     public GameObject pergaminho;
 
+    public GameObject caveira;
+
 
     void Start()
     {
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
 
         pergaminho.gameObject.SetActive(false);
+        caveira.gameObject.SetActive(false);
 
     }
 
@@ -135,7 +138,11 @@ public class Player : MonoBehaviour
 
             Destroy(other.gameObject);
 
-            pergaminho.gameObject.SetActive(true);
+            //pergaminho.gameObject.SetActive(true);
+
+            //caveira.gameObject.SetActive(true);
+
+            other.gameObject.SetActive(true);
         }
     }
 
