@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 512784629}
   - component: {fileID: 512784631}
   m_Layer: 5
-  m_Name: Pergaminho
+  m_Name: BackPergaminho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pergaminho: {fileID: 512784627}
-  player: {fileID: 2025187851}
+  player: {fileID: 0}
 --- !u!1 &957767702
 GameObject:
   m_ObjectHideFlags: 0
@@ -5816,12 +5816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204d42b3096e6944595f0b49c917e013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pergaminho: {fileID: 0}
---- !u!1 &2025187851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7909630107198356020, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
-  m_PrefabInstance: {fileID: 4387910273971890553}
-  m_PrefabAsset: {fileID: 0}
+  Pergaminho: {fileID: 512784627}
 --- !u!1001 &4387910273971890553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5848,11 +5843,11 @@ PrefabInstance:
       objectReference: {fileID: 512784627}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.25
+      value: 8.91
       objectReference: {fileID: 0}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.68
+      value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.z

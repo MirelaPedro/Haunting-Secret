@@ -133,15 +133,13 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
+            pergaminho.gameObject.SetActive(true);
+
             Debug.Log("Item pego!");
 
             Destroy(other.gameObject);
 
-            //pergaminho.gameObject.SetActive(true);
-
             //caveira.gameObject.SetActive(true);
-
-            other.gameObject.SetActive(true);
         }
     }
 
