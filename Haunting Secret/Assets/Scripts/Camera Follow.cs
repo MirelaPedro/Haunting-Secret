@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public Transform player;
     public float minX, maxX;
     public float timeLerp;
+
     private void FixedUpdate()
     {
-        Vector3 newPosition = player.position + new Vector3(0, 0, -10);
+        GameObject player = GameObject.FindWithTag("Player");
+        Vector3 newPosition = player.transform.position + new Vector3(0, 0, -10);
         newPosition.y = 0.1f;
         transform.position = Vector3.Lerp(transform.position, newPosition, timeLerp);
         transform.position = newPosition;
