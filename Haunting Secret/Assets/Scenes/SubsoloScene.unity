@@ -6354,7 +6354,7 @@ Transform:
   m_GameObject: {fileID: 1107728930}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.26, y: 0.93, z: -0.027187217}
+  m_LocalPosition: {x: -2.29, y: -3.06, z: -0.027187217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6530,7 +6530,7 @@ Canvas:
   m_GameObject: {fileID: 1346574038}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1856022122}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
