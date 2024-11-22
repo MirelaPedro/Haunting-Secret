@@ -43,7 +43,6 @@ public class Player : MonoBehaviour
 
     }
 
-    // Update is called once per fram
     void Update()
     {
         if (!dead) { 
@@ -164,9 +163,9 @@ public class Player : MonoBehaviour
 
     private IEnumerator WaitAndGameOver()
     {
-        yield return new WaitForSeconds(2f); // Espera por 2 segundos
+        yield return new WaitForSeconds(2f);
         this.gameObject.SetActive(false);
-        SceneManager.LoadScene("GameOver"); // Carrega a cena de Game Over
+        SceneManager.LoadScene("GameOver"); 
     }
 }
 
