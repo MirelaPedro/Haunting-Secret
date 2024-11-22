@@ -10,7 +10,6 @@ public class Fantasma : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public bool facingRight = true;
-    public int Respawn;
 
     void Start()
     {
