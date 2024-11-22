@@ -25,6 +25,7 @@ public class Caveira : MonoBehaviour
             Debug.Log("Item pego!");
 
             caveira.gameObject.SetActive(true);
+
         }
     }
 }
