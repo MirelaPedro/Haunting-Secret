@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
 
     private bool dead = false;
 
-    public GameObject backpergaminho;
+    public GameObject pergaminho;
+
 
     void Start()
     {
@@ -35,7 +36,8 @@ public class Player : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         anim = GetComponent<Animator>();
 
-        backpergaminho.gameObject.SetActive(false);
+        pergaminho.gameObject.SetActive(false);
+
     }
 
     // Update is called once per fram
@@ -133,7 +135,7 @@ public class Player : MonoBehaviour
 
             Destroy(other.gameObject);
 
-            backpergaminho.gameObject.SetActive(true);
+            pergaminho.gameObject.SetActive(true);
         }
     }
 

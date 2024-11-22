@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Pergaminho : MonoBehaviour
 {
-    public Image backpergaminho;
+    public GameObject pergaminho;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        backpergaminho.gameObject.SetActive(false);
+        pergaminho.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,11 +20,11 @@ public class Pergaminho : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            backpergaminho.gameObject.SetActive(true);
+            pergaminho.gameObject.SetActive(true);
         }
     }
 }
