@@ -7,23 +7,26 @@ public class Pergaminho : MonoBehaviour
 {
     public GameObject mensagem;
 
-    
     void Start()
     {
-        mensagem.gameObject.SetActive(false);
+        if (mensagem == null)
+        {
+            mensagem = GameObject.FindWithTag("Item"); 
+        }
+
+        mensagem.SetActive(false);
     }
 
-    
     void Update()
     {
-        
+
     }
 
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            mensagem.gameObject.SetActive(true);
+            mensagem.SetActive(true);
         }
     }
 }
