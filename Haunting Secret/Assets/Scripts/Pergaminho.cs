@@ -8,13 +8,13 @@ public class Pergaminho : MonoBehaviour
     public GameObject pergaminho;
     public GameObject player;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         pergaminho.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
