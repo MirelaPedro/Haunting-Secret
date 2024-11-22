@@ -487,7 +487,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &387662728
 GameObject:
@@ -5842,7 +5842,7 @@ PrefabInstance:
       objectReference: {fileID: 512784627}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.34
+      value: 21.74
       objectReference: {fileID: 0}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.y

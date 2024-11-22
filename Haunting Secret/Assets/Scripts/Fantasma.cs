@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Fantasma : MonoBehaviour
 {
-    Animator anim;
     private float speed = 2;
     public bool ground = true;
     public Transform groundCheck;
@@ -14,7 +13,6 @@ public class Fantasma : MonoBehaviour
 
     void Start()
     {
-        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -30,13 +28,11 @@ public class Fantasma : MonoBehaviour
         if(speed > 0 && !facingRight)
         {
             Flip();
-            anim.SetInteger("transit", 0);
         }
 
         else if(speed < 0 && facingRight)
         {
             Flip();
-            anim.SetInteger("transit", 0);
         }
     }
 
