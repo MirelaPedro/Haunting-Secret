@@ -4,63 +4,43 @@ using UnityEngine;
 
 public class Fantasma : MonoBehaviour
 {
-    public float moveSpeed = 0.3f;
-    public Transform[] pointsToMove; // Array de pontos de movimento
-    public int startingPoint;
-    public SpriteRenderer sprite;
+    private float speed = 3;
+    public bool ground = true;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    public bool facingRight = true;
 
     void Start()
     {
-        // Verifica se os pontos de movimento foram configurados
-        if (pointsToMove == null || pointsToMove.Length == 0)
-        {
-            Debug.LogError("O array 'pointsToMove' está vazio ou não foi configurado.");
-        }
-
-        // Verifica se o SpriteRenderer foi atribuído
-        if (sprite == null)
-        {
-            Debug.LogError("O componente 'SpriteRenderer' não foi atribuído ao script.");
-        }
-    }
-
-    void FixedUpdate()
-    {
-        if (pointsToMove != null && pointsToMove.Length > 0)
-        {
-            Move();
-        }
     }
 
     void Update()
     {
-        // Ajusta a direção do sprite com base no ponto atual
-        if (sprite != null)
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        ground = Physics2D.Linecast(groundCheck.position, transform.position, groundLayer);
+        Debug.Log(ground);
+
+        if(ground == false)
         {
-            sprite.flipX = startingPoint == 0;
+            speed *= -1;
+        }
+
+        if(speed > 0 && !facingRight)
+        {
+            Flip();
+        }
+
+        else if(speed < 0 && facingRight)
+        {
+            Flip();
         }
     }
 
-    private void Move()
+    void Flip()
     {
-        if (pointsToMove == null || pointsToMove.Length == 0) return;
-
-        Vector2 targetPosition = pointsToMove[startingPoint].position;
-
-        transform.position = new Vector2(
-            Mathf.MoveTowards(transform.position.x, targetPosition.x, moveSpeed * Time.deltaTime),
-            transform.position.y
-        );
-
-        // Verifica se o fantasma alcançou o ponto atual
-        if (Mathf.Approximately(transform.position.x, targetPosition.x))
-        {
-            startingPoint++;
-
-            if (startingPoint >= pointsToMove.Length)
-            {
-                startingPoint = 0; // Volta ao primeiro ponto
-            }
-        }
+        facingRight = !facingRight;
+        Vector3 Scale = transform.localScale;
+        Scale.x *= -1;
+        transform.localScale = Scale;
     }
 }
