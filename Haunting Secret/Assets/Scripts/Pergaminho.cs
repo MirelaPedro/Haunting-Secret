@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class Pergaminho : MonoBehaviour
 {
-    public GameObject pergaminho;
-    public GameObject player;
+    public GameObject mensagem;
 
     
     void Start()
     {
-        pergaminho.gameObject.SetActive(false);
+        mensagem.gameObject.SetActive(false);
     }
 
     
@@ -20,11 +19,11 @@ public class Pergaminho : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            pergaminho.gameObject.SetActive(true);
+            mensagem.gameObject.SetActive(true);
         }
     }
 }
