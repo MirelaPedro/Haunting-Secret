@@ -5794,7 +5794,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -382, y: -60}
+  m_AnchoredPosition: {x: -234, y: -53}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &604057782
@@ -6998,7 +6998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86f5e0035896c7409c5b162a7fc694a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: 1
+  minX: 5
   maxX: 25
   timeLerp: 0.05
 --- !u!1 &1876550096
@@ -7038,8 +7038,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.009094, y: 130}
-  m_SizeDelta: {x: -63.9818, y: -340}
+  m_AnchoredPosition: {x: 66.16699, y: 121.030396}
+  m_SizeDelta: {x: -185.6478, y: -299.9392}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876550098
 MonoBehaviour:
@@ -7285,9 +7285,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -449, y: 15}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -301, y: 15}
+  m_SizeDelta: {x: 82.1952, y: 80.9696}
+  m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!1 &2007550241
 GameObject:
   m_ObjectHideFlags: 0
@@ -7322,8 +7322,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 0}
-  m_SizeDelta: {x: 915, y: 221}
+  m_AnchoredPosition: {x: 250, y: -33}
+  m_SizeDelta: {x: 861.5856, y: 221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2007550243
 CanvasRenderer:
@@ -7380,8 +7380,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7416,7 +7416,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.3348389, y: 44.049988, z: 58.733276, w: 46.719727}
+  m_margin: {x: 1.3348389, y: 44.049988, z: 276.84192, w: 110.52023}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
