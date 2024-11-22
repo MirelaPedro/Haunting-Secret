@@ -747,8 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1c96c3943dc0048bb9b9ff0a59ceae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pergaminho: {fileID: 512784627}
-  player: {fileID: 0}
+  mensagem: {fileID: 0}
 --- !u!1 &957767702
 GameObject:
   m_ObjectHideFlags: 0
@@ -5360,8 +5359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86f5e0035896c7409c5b162a7fc694a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: 3
-  maxX: 13
+  minX: 1
+  maxX: 15
   timeLerp: 0.05
 --- !u!1 &1303679868
 GameObject:
@@ -5843,11 +5842,11 @@ PrefabInstance:
       objectReference: {fileID: 512784627}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.91
+      value: -7.34
       objectReference: {fileID: 0}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.65
+      value: -2.57
       objectReference: {fileID: 0}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalPosition.z
