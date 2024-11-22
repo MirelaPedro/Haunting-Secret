@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 90350421}
   - component: {fileID: 90350420}
   m_Layer: 5
-  m_Name: Dica
+  m_Name: Dica_pergamininho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5878,6 +5878,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600818990867638974, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056855156992221269, guid: 6ae959486fccc4b4cb60244216f9a7c7, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
